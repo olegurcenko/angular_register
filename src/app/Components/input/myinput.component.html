@@ -1,0 +1,22 @@
+<div class="input_component">		
+		<input
+			id="password"
+			type="password"
+			placeholder="Enter your password"
+			[(ngModel)]="password"
+			(input)="checkPasswordStrength()"
+		/>
+  
+	<div class="strength-indicator">
+		<div
+			[ngClass]="{ 'nothing': passwordStrength === 'nothing', 'weak': passwordStrength === 'weak', 'medium': passwordStrength === 'medium', 'strong': passwordStrength === 'strong' }">
+		</div>
+		<div
+			[ngClass]="{ 'nothing': passwordStrength === 'nothing' || passwordStrength == 'weak', 'weak': passwordStrength === 'nothing' || passwordStrength !== 'strong', 'medium': passwordStrength === 'medium', 'strong': passwordStrength === 'strong' }">
+		</div>
+		<div
+			[ngClass]="{ 'nothing': passwordStrength === 'nothing' || passwordStrength == 'weak' || passwordStrength == 'medium', 'weak': passwordStrength === 'nothing', 'strong': passwordStrength === 'strong' }">
+		</div>
+	</div>
+</div>
+  
